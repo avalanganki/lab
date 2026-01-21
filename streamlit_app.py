@@ -2,6 +2,8 @@ import streamlit as st
 st.markdown('# 488 Labs')
 st.markdown('## :red[Ava Langanki]')
 
-p1 = st.Page('/workspaces/document-qa/lab1.py', title='Lab 1', icon=None, url_path=None, default=False)
+p1 = st.Page('lab1.py', title='Lab 1', icon=None, url_path=None, default=False)
 
 pg = st.navigation([p1])
+st.set_page_config(page_title='Data manager')
+pg.run()
