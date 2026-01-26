@@ -1,7 +1,6 @@
 import streamlit as st
 from openai import OpenAI
 
-# Show title and description.
 st.title("My app using secrets")
 st.write(
     "Upload a document below and ask a question about it – GPT will answer! "
@@ -12,15 +11,12 @@ secret_key = st.secrets.OPENAI_API_KEY
 st.write("Here is my secret key:", secret_key)
 st.write("And here again!", st.secrets["OPENAI_API_KEY"])
 
-# Create an OpenAI client.
-client = OpenAI(api_key=secret_key)  # Changed from openai_api_key to secret_key
+client = OpenAI(api_key=secret_key) 
 
-# Let the user upload a file via `st.file_uploader`.
 uploaded_file = st.file_uploader(
     "Upload a document (.txt or .md)", type=("txt", "md")
 )
 
-# Ask the user for a question via `st.text_area`.
 question = st.text_area(
     "Now ask a question about the document!",
     placeholder="Can you give me a short summary?",
@@ -29,7 +25,6 @@ question = st.text_area(
 
 if uploaded_file and question:
 
-    # Process the uploaded file and question.
     document = uploaded_file.read().decode()
     messages = [
         {
@@ -45,5 +40,5 @@ if uploaded_file and question:
         stream=True,
     )
 
-    # Stream the response to the app using `st.write_stream`.
     st.write_stream(stream)
+    
