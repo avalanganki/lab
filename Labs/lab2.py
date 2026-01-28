@@ -1,7 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 
-st.title("My app using secrets")
+st.title("Document QA With Secret")
 
 
 secret_key = st.secrets.OPENAI_API_KEY
