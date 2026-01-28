@@ -17,11 +17,18 @@ elif options == 'Two Paragraphs':
 elif options == '5 Bullet Points':
     prompt_instruction = "Summarize this document in five bullet points"
 
-model_list = ['gpt-4o-mini', 'gpt-4o-nano']
-selected_model = st.sidebar.selectbox('Select Model', model_list)
+use_advanced_model = st.sidebar.checkbox('Use Advanced Model')
+
+if use_advanced_model:
+    model_to_use = 'gpt-4o'  
+else:
+    model_to_use = 'gpt-4o-mini' 
+st.sidebar.write(f"Using model: {model_to_use}")
+
 uploaded_file = st.file_uploader(
     "Upload a document (.txt or .md)", type=("txt", "md")
 )
+
 
 if uploaded_file and options:
 
