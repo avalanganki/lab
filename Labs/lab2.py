@@ -8,9 +8,6 @@ st.write(
 )
 
 secret_key = st.secrets.OPENAI_API_KEY
-st.write("Here is my secret key:", secret_key)
-st.write("And here again!", st.secrets["OPENAI_API_KEY"])
-
 client = OpenAI(api_key=secret_key) 
 
 uploaded_file = st.file_uploader(
